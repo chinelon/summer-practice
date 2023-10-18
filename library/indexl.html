@@ -30,7 +30,7 @@
                     <label for="read">Have you read this book?</label>
                     <input type="checkbox" id="read"><br>
 
-                    <button type="submit">Add Book</button>
+                    <button type="submit" id="">Add Book</button>
                 </form>
             </dialog>
 
@@ -42,7 +42,7 @@
                         <th>Title</th>
                         <th>Author</th>
                         <th>Pages</th>
-
+                        <th> Read </th>
                     </tr>
                 </thead>
                 <tbody id="book-table-body">
@@ -56,15 +56,16 @@
     <script>
         const myLibrary = [];
 
-        function Book(title, author, pages, read) {
-            this.title = title
-            this.author = author
-            this.pages = pages
-            this.read = read //false
-            this.info = function () {
-                return `${this.title} by ${this.author} with ${this.pages} has been ${this.read}`;
-            }
+        function Book(title, author, pages, read = false) {
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = read;
         }
+
+        Book.prototype.toggleReadStatus = function () {
+            this.read = !this.read; // Toggle the read status (true to false and vice versa)
+        };
 
         function addBookToLibrary(title, author, pages, read) {
             const newBook = new Book(title, author, pages, read);
@@ -109,7 +110,15 @@
                      <td>${book.author}</td>
                      <td>${book.pages}</td>
                      <td>${book.read ? 'Yes' : 'No'}</td>
+                     <td><button class="toggle-btn" data-index="${index}">Read</button></td>
                      <td><button class="remove-btn" data-index="${index}">Remove</button></td>`;
+
+                // Add event listener for each Toggle Status button
+                const toggleBtn = row.querySelector('.toggle-btn');
+                toggleBtn.addEventListener('click', () => {
+                    myLibrary[index].toggleReadStatus(); // Toggle the read status of the book
+                    displayBooks(); // Refresh the displayed books after toggling the status
+                });
 
                 // Add event listener for each Remove button
                 const removeBtn = row.querySelector('.remove-btn');
@@ -119,6 +128,7 @@
                 });
             });
         }
+
 
 
     </script>
