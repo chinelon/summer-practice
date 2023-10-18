@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function scope example</title>
+</head>
+
+<body>
+
+    <script>
+       /* function add7(n) {
+            return n + 7
+        }
+        console.log(add7(5))
+        function multiply(a,b) {
+            return a * b;
+        }
+        console.log(multiply(4,5))*/
+        const person = {
+            name: 'chinelo',
+            lastName: 'nwobbi',
+            get fullName() {
+                return `${name} ${lastName}`
+            },
+            set fullName(value) {
+                const parts = value.split(' ');
+                this.name = parts[0],
+                this.lastName = parts[1]
+            }
+        }
+       // person.fullName = 'Chika Nwobbi'
+
+        console.log(person)
+        
+    </script>
+</body>
+
+</html>

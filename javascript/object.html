@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let salaries = {
+            John: 100,
+            Ann: 160,
+            Pete: 130
+        }
+        alert(salaries.John + salaries.Ann + salaries.Pete)
+    
+
+
+        let user = {
+            name: "Ayo",
+            age: 23,
+            "likes birds": true,  // multiword property name must be quoted
+        }
+
+        alert("age" in user); // true, user.age exists
+        alert(user.age)// gets property valures of object
+        delete user.age;// deletes age property of the object
+        //alert(user.age)// gets property valures of object
+
+        // for multiword properties dot access doesnt work, instead square brackert notation is used
+
+        // user["likes birds"] = false;
+        alert(user["likes birds"])
+
+        delete user["likes birds"]
+
+        //property value shorthand
+        function makeUser(name, age) {
+            return {
+                name,
+                age,
+                // ...other properties
+            };
+        }
+
+        let users = makeUser("Johny", 30);
+        alert(users.name); // John
+    </script>
+</body>
+
+</html>

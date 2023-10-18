@@ -1,0 +1,45 @@
+.flexcontainer{
+    display: flex;
+    gap: 50px;
+    
+}
+.form-backg{
+    background: white;
+    margin: 300px;
+    margin-left: 700px;
+    width: 700px;
+    padding: 20px;
+    box-shadow: 0px 5px 5px grey;;
+
+}
+.backg{
+    background: rgba(232, 231, 231, 0.543);
+    display: flex;
+}
+
+.backg div{
+    flex: 1;
+    margin: auto;
+
+}
+.leaf{
+    margin: 0px;
+}
+.button{
+  background-color: #38803ad5;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 5px 15px;
+  display: inline-block;
+}
+
+.button:hover{
+  background-color: #f1f7f1d5;
+  border: 2px solid black;
+}
+
+.backg2{
+    margin-top: 50px;
+ 
+}

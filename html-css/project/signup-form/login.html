@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Login Page</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Login Page</h1>
+			<button id="modal-btn" class="btn">Open Modal</button>
+			<div id="modal" class="modal">
+				<div class="modal-content">
+					<span class="close-btn">&times;</span>
+					<form id="login-form">
+						<label for="email">Email:</label><br>
+						<input type="email" id="email" name="email"><br>
+						<label for="password">Password:</label><br>
+						<input type="password" id="password" name="password"><br>
+						<button type="submit" class="btn">Login</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="app.js"></script>
+	</body>
+</html>

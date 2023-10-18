@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+</head>
+
+<body>
+    <button>Press me</button>
+    <script>
+        const button = document.querySelector("button");
+
+        function greet() {
+            const name = prompt("What is your name?");
+            alert(`Hello ${name}, nice to see you!`);
+        }
+
+        button.addEventListener("click", greet);
+
+        console.log(23 + 97)
+        /*let x = 5, r = 6, y = 90, t = 43, h = 5, g = 3*/
+        let x = (4 + 6 + 9) / 77;
+        console.log(x)
+
+        let a = 10
+        a = 20
+        console.log(a)
+
+        let name = "John";
+
+        let text = "Apple, Banana, Kiwi";
+        let part = text.slice(-12);
+
+        let text2 = "Please visit Microsoft!";
+        let newText = text2.replace("Microsoft", "W3Schools");
+
+        /*// embed a variable
+        alert(`Hello, ${name}!`); // Hello, John!
+        alert(`the result is ${1 + 2}`);
+
+        let b = 7 * a
+         console.log(b)
+ 
+         const max = 57
+         const actual = max - 13 
+         ,percentage = actual/ max;*/
+
+
+        const one = "Hello, ";
+        const two = "how are you?";
+        const joined = `${one}${two}`;
+        console.log(joined);
+    </script>
+</body>
+
+</html>
