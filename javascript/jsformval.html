@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        form{
+            margin: 100px;
+            background-color: aquamarine;
+            padding: 50px;
+            max-width: 600PX;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px 10px 10px;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <form>
+        <div>
+            <label for="email">E-mail: </label>
+            <input id="email"  type="email" placeholder="johndoe@gmail.com">
+        </div>
+        <div>
+            <label for="country">Country: </label>
+            <input id="country" type="text" placeholder="Nigeria">
+        </div>
+        <div>
+            <label for="zip">Zip-Code: </label>
+            <input id="zip"  type="number" placeholder="103109">
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input id="pwd" type="password" placeholder="****">
+        </div>
+        <button type="submit"> Submit </button>
+    </form>
+    <script>
+        const email = document.getElementById('email');
+        const zipCode = document.getElementById('zip');
+        const password = document.getElementById('pwd'); 
+
+        email.addEventListener("input", (event) =>{
+            
+            if (email.validity.typeMismatch) {
+                email.setCustomValidity('Add email here')
+            } else {
+                email.setCustomValidity(" ")
+            }
+        })
+
+        zipCode.addEventListener("input", (event) => {
+            if (zipCode.validity.tooShort){
+                setCustomValidity('Zip Code Should be 6 digits long')
+            } else{
+                zipCode.setCustomValidity(" ")
+            }
+        })
+    </script>
+</body>
+</html>
