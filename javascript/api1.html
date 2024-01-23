@@ -36,3 +36,12 @@
 </body>
 
 </html>
+
+function fetchNewImage() {
+    fetch('https://api.giphy.com/v1/gifs/translate?api_key=rSA7IUVHJWhXipUQjmwrh6QFJeOSWjmX&s=${searchTerm}', { mode: 'cors' })
+        .then(response => response.json())
+        .then(response => {
+            img.src = response.data.images.original.url;
+        })
+        .catch(error => console.error('Error fetching new image:', error));
+}

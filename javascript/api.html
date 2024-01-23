@@ -8,41 +8,48 @@
 
 <body>
     <style>
-        .main{
+        .main {
             display: flex;
         }
-        #search{
+
+        #search {
             border: black solid 1px;
             padding: 20px;
         }
     </style>
     <div class="main">
-        <input id="search" placeholder="new image">  </input>
+        <input id="search" placeholder="new image"> </input>
         <button> search </button>
     </div>
-    
+
     <img src="#">
     <script>
+
         const input = document.getElementById('search');
         const refreshButton = document.querySelector('button');
         const img = document.querySelector('img');
 
+        async function getGif() {
+            searchTerm = input.value || 'dogs';
 
-        searchTerm = input.value || 'dogs';
-
-        function fetchNewImage() {
-            fetch('https://api.giphy.com/v1/gifs/translate?api_key=rSA7IUVHJWhXipUQjmwrh6QFJeOSWjmX&s=${searchTerm}', { mode: 'cors' })
-                .then(response => response.json())
-                .then(response => {
-                    img.src = response.data.images.original.url;
-                })
-                .catch(error => console.error('Error fetching new image:', error));
+            try {
+                const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=rSA7IUVHJWhXipUQjmwrh6QFJeOSWjmX&ss=${searchTerm}`, { mode: 'cors' });
+                const searchData = await response.json();
+                
+                if (searchData.data && searchData.data.images && searchData.data.images.original) {
+                    img.src = searchData.data.images.original.url;
+                } else {
+                    console.error('No image found.');
+                }
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
         }
 
         // Attach event listener to the button
-        refreshButton.addEventListener('click', fetchNewImage);
+        refreshButton.addEventListener('click', getGif);
 
-        fetchNewImage()
+        getGif();
     </script>
 </body>
 
