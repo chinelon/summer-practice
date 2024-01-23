@@ -7,16 +7,42 @@
 </head>
 
 <body>
+    <style>
+        .main{
+            display: flex;
+        }
+        #search{
+            border: black solid 1px;
+            padding: 20px;
+        }
+    </style>
+    <div class="main">
+        <input id="search" placeholder="new image">  </input>
+        <button> search </button>
+    </div>
+    
     <img src="#">
     <script>
+        const input = document.getElementById('search');
+        const refreshButton = document.querySelector('button');
         const img = document.querySelector('img');
-        fetch('https://api.giphy.com/v1/gifs/translate?api_key=rSA7IUVHJWhXipUQjmwrh6QFJeOSWjmX&s=cats', { mode: 'cors' })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (response) {
-                console.log(response);
-            });
+
+
+        searchTerm = input.value || 'dogs';
+
+        function fetchNewImage() {
+            fetch('https://api.giphy.com/v1/gifs/translate?api_key=rSA7IUVHJWhXipUQjmwrh6QFJeOSWjmX&s=${searchTerm}', { mode: 'cors' })
+                .then(response => response.json())
+                .then(response => {
+                    img.src = response.data.images.original.url;
+                })
+                .catch(error => console.error('Error fetching new image:', error));
+        }
+
+        // Attach event listener to the button
+        refreshButton.addEventListener('click', fetchNewImage);
+
+        fetchNewImage()
     </script>
 </body>
 
